@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Al Jefoon Tents Puzzle Rush - a fun event equipment sliding puzzle.">
+  <title>Al Jefoon Tents — Puzzle Rush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">AJ</div>
+        <div>
+          <div class="brand-name">AL JEFOON TENTS</div>
+          <div class="brand-sub">PUZZLE RUSH</div>
+        </div>
+      </div>
+      <div class="top-stats">
+        <div class="stat"><span>🪙</span><b id="coinCount">0</b></div>
+        <div class="stat timer-stat"><span>⏱</span><b id="timer">03:00</b></div>
+      </div>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen active">
+        <div class="hero">
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-tent"><span>AJ</span></div>
+            <div class="hero-chair chair-a"></div>
+            <div class="hero-chair chair-b"></div>
+            <div class="hero-glass">◇</div>
+            <div class="spark s1">✦</div><div class="spark s2">✦</div><div class="spark s3">•</div>
+          </div>
+          <div class="eyebrow">ARRANGE • SOLVE • BEAT THE CLOCK</div>
+          <h1>PUZZLE <span>RUSH</span></h1>
+          <p class="hero-copy">Put the event pieces back in place before time runs out.</p>
+          <button id="playBtn" class="primary-btn">▶ PLAY NOW</button>
+        </div>
+        <div class="home-grid">
+          <button class="menu-card" data-screen="storeScreen"><span class="menu-icon">🛍</span><b>STORE</b><small>Boost your run</small></button>
+          <button class="menu-card" data-screen="achievementsScreen"><span class="menu-icon">🏆</span><b>ACHIEVEMENTS</b><small>Collect badges</small></button>
+          <button class="menu-card" data-screen="howScreen"><span class="menu-icon">?</span><b>HOW TO PLAY</b><small>Learn the puzzle</small></button>
+        </div>
+        <div class="built">Built by <strong>Al Jefoon Tents</strong> • UAE • Since 2002</div>
+      </section>
+
+      <section id="gameScreen" class="screen">
+        <div class="game-head">
+          <button class="back-btn" data-screen="homeScreen">← BACK</button>
+          <div class="game-title">
+            <b id="puzzleTitle">SET UP THE PARTY</b>
+            <span id="moves">0 moves</span>
+          </div>
+          <button id="pauseBtn" class="icon-btn" aria-label="Pause">Ⅱ</button>
+        </div>
+        <div class="progress-wrap"><div id="timeBar" class="time-bar"></div></div>
+        <div class="puzzle-shell">
+          <div id="puzzle" class="puzzle" aria-label="4 by 4 sliding puzzle"></div>
+        </div>
+        <div class="game-actions">
+          <button id="hintBtn" class="secondary-btn">💡 HINT <span>200</span></button>
+          <button id="shuffleBtn" class="secondary-btn">🔀 SHUFFLE <span>50</span></button>
+        </div>
+        <div class="game-tip">Tap a tile beside the empty space to move it.</div>
+      </section>
+
+      <section id="pauseScreen" class="screen modal-screen">
+        <div class="modal-card">
+          <div class="modal-symbol">Ⅱ</div>
+          <h2>GAME PAUSED</h2>
+          <p>Your puzzle is waiting for you.</p>
+          <button id="resumeBtn" class="primary-btn">▶ RESUME</button>
+          <button class="secondary-btn full" data-screen="homeScreen">← MAIN MENU</button>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen modal-screen">
+        <div class="modal-card">
+          <div id="resultIcon" class="modal-symbol">🏆</div>
+          <h2 id="resultTitle">PUZZLE SOLVED!</h2>
+          <p id="resultText"></p>
+          <div class="reward" id="rewardText">+100 🪙</div>
+          <button id="againBtn" class="primary-btn">↻ PLAY AGAIN</button>
+          <button class="secondary-btn full" data-screen="homeScreen">← MAIN MENU</button>
+        </div>
+      </section>
+
+      <section id="storeScreen" class="screen">
+        <div class="page-head"><button class="back-btn" data-screen="homeScreen">← BACK</button><h2>AL JEFOON STORE</h2><div class="balance">🪙 <b id="storeCoins">0</b></div></div>
+        <p class="page-intro">Spend coins on useful puzzle boosters. Items work during your next active game.</p>
+        <div class="store-list">
+          <article class="store-item"><div class="item-icon">💡</div><div><b>HINT</b><small>Highlights a helpful tile.</small></div><button class="buy-btn" data-buy="hint">200 🪙</button></article>
+          <article class="store-item"><div class="item-icon">⏱</div><div><b>TIME BOOST</b><small>Adds 30 seconds to the clock.</small></div><button class="buy-btn" data-buy="time">150 🪙</button></article>
+          <article class="store-item"><div class="item-icon">🧊</div><div><b>TIME FREEZE</b><small>Stops the timer for 10 seconds.</small></div><button class="buy-btn" data-buy="freeze">300 🪙</button></article>
+          <article class="store-item"><div class="item-icon">🔀</div><div><b>SMART SHUFFLE</b><small>Rearranges the board into a fresh challenge.</small></div><button class="buy-btn" data-buy="shuffle">100 🪙</button></article>
+        </div>
+        <div class="built">Built by <strong>Al Jefoon Tents</strong></div>
+      </section>
+
+      <section id="achievementsScreen" class="screen">
+        <div class="page-head"><button class="back-btn" data-screen="homeScreen">← BACK</button><h2>ACHIEVEMENTS</h2><div></div></div>
+        <div id="achievementList" class="achievement-list"></div>
+        <div class="built">Keep playing to unlock them all.</div>
+      </section>
+
+      <section id="howScreen" class="screen">
+        <div class="page-head"><button class="back-btn" data-screen="homeScreen">← BACK</button><h2>HOW TO PLAY</h2><div></div></div>
+        <div class="how-card">
+          <div class="how-step"><strong>1</strong><div><b>SLIDE</b><p>Tap a tile next to the empty square to move it.</p></div></div>
+          <div class="how-step"><strong>2</strong><div><b>ARRANGE</b><p>Put all 15 tiles into their correct positions.</p></div></div>
+          <div class="how-step"><strong>3</strong><div><b>BEAT THE CLOCK</b><p>Finish quickly to earn more coins.</p></div></div>
+          <div class="how-step"><strong>4</strong><div><b>SPEND & UNLOCK</b><p>Use coins in the store and collect achievements.</p></div></div>
+        </div>
+        <div class="rules"><b>SCORING</b><span>Win: 100 🪙</span><span>Under 60 sec: +50 🪙</span><span>Under 30 sec: +100 🪙</span><span>Daily first game: +25 🪙</span></div>
+        <div class="built">A fun mini-game by <strong>Al Jefoon Tents</strong></div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
